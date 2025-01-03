@@ -3,10 +3,12 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
 export default function page() {
-
-    var cartItem = JSON.parse(localStorage.getItem('cartItems'));
-    var cartItem = cartItem ? cartItem : [];
-    const [cartItems, setCartItems] = useState(cartItem);
+    // Check if localStorage is available
+    if (typeof window !== 'undefined') {
+        var cartItem = JSON.parse(localStorage.getItem('cartItems'));
+        var cartItem = cartItem ? cartItem : [];
+        const [cartItems, setCartItems] = useState(cartItem);
+    }
 
     var [totalAmout, setTotalAmount] = useState(0);
 
