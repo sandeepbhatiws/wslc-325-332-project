@@ -4,11 +4,13 @@ import React, { useEffect, useState } from 'react'
 
 export default function page() {
     // Check if localStorage is available
-    if (typeof window !== 'undefined') {
-        var cartItem = JSON.parse(localStorage.getItem('cartItems'));
-        var cartItem = cartItem ? cartItem : [];
-        const [cartItems, setCartItems] = useState(cartItem);
-    }
+    // if (typeof window !== 'undefined') {
+    //     var cartItem = JSON.parse(localStorage.getItem('cartItems'));
+    //     var cartItem = cartItem ? cartItem : [];
+    //     const [cartItems, setCartItems] = useState(cartItem);
+    // }
+
+    let [cartItems, setCartItems]=useState(typeof window !== "undefined" ? JSON.parse(localStorage.getItem("cartItems")) : null)
 
     var [totalAmout, setTotalAmount] = useState(0);
 
